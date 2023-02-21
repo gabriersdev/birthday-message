@@ -1,3 +1,17 @@
 :root{
   --fonte: 'Inter Tight'
+
+  /* Cores */
+  --fundo-escuro: #0F1524;
+  --branco: #F5F5F5;
+  --branco025: rgba(245, 245, 245, 0.25);
+  --azul-medio: #495676;
+
+  /* Margin */
+  --margin-lateral: 15rem;
+
+  /* Fonte */
+  --txt: 2.5rem;
+  --txt-botao: 1.875rem;
+  --txt-atalho-botao: 1.56rem;
 }
