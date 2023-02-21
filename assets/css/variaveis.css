@@ -1,5 +1,5 @@
 :root{
-  --fonte: 'Inter Tight'
+  --fonte: 'Inter Tight';
 
   /* Cores */
   --fundo-escuro: #0F1524;
@@ -12,6 +12,16 @@
 
   /* Fonte */
   --txt: 2.5rem;
+  --txt-cor: var(--branco); 
+  
   --txt-botao: 1.875rem;
+  --txt-botao-cor: var(--branco); 
+
   --txt-atalho-botao: 1.56rem;
+  --borda-atalho-botao: var(--azul-medio);
+  --txt-atalho-botao-cor: var(--azul-medio);
+
+  /* Background */
+  --bckg-escuro: var(--fundo-escuro);
+  --bckg-rodape: var(--branco025);
 }
