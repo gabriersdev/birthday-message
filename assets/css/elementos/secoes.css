@@ -2,8 +2,24 @@
 
 }
 
-.apresentacao{
+.apresentacao, 
+.mensagens, 
+.nao-ver{
+  padding: 0 var(--margin-lateral);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-direction: column;
+  font-size: var(--txt);
+  line-height: 1.5;
+  /* border-bottom: 1px dashed #FFF; */
+}
 
+.apresentacao b, 
+.mensagens b, 
+.nao-ver b{
+  font-weight: var(--weight-bold);
 }
 
 .mensagens{
@@ -11,7 +27,10 @@
 }
 
 .mensagens__contador{
-
+  font-size: var(--txt-contador-mensagens);
+  color: var(--txt-contador-mensagens-cor);
+  font-weight: var(--weight-bold);
+  margin-bottom: 2rem;
 }
 
 .nao-ver{
@@ -21,13 +40,15 @@
 .apresentacao__texto,
 .mensagens__texto,
 .nao-ver__texto{
-
+  margin-bottom: 1.25rem;
 }
 
 .rodape{
-
+  padding: 5rem var(--margin-lateral);
+  background-color: var(--bckg-rodape);
 }
 
 .rodape__texto{
-
+  font-size: var(--txt);
+  line-height: 1.5;
 }

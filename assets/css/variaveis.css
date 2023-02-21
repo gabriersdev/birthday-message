@@ -2,26 +2,35 @@
   --fonte: 'Inter Tight';
 
   /* Cores */
-  --fundo-escuro: #0F1524;
+  --azul-escuro: #0F1524;
   --branco: #F5F5F5;
-  --branco025: rgba(245, 245, 245, 0.25);
+  --branco025: rgba(245, 245, 245, 0.025);
   --azul-medio: #495676;
 
   /* Margin */
   --margin-lateral: 15rem;
 
-  /* Fonte */
-  --txt: 2.5rem;
+  /* Geral */
+  --txt: 1.85rem;
   --txt-cor: var(--branco); 
   
-  --txt-botao: 1.875rem;
-  --txt-botao-cor: var(--branco); 
+  --txt-contador-mensagens: 1.75rem;
+  --txt-contador-mensagens-cor: var(--azul-medio);
 
-  --txt-atalho-botao: 1.56rem;
+  --txt-botao: 1.75rem;
+  --txt-botao-cor: var(--branco);
+  --borda-botao: var(--branco);
+  --bckg-botao-hover: var(--branco);
+  --txt-botao-cor-hover: var(--azul-escuro);
+
+  --txt-atalho-botao: 1.25rem;
+  --fonte-txt-atalho-botao: 'JetBrains Mono';
   --borda-atalho-botao: var(--azul-medio);
   --txt-atalho-botao-cor: var(--azul-medio);
 
   /* Background */
-  --bckg-escuro: var(--fundo-escuro);
+  --bckg-escuro: var(--azul-escuro);
   --bckg-rodape: var(--branco025);
+
+  --weight-bold: 700;
 }
