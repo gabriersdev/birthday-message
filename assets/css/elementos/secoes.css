@@ -34,7 +34,7 @@
 }
 
 .nao-ver{
-  
+
 }
 
 .apresentacao__texto,
@@ -55,6 +55,10 @@
 
 .rodape__texto:first-child{
   margin-bottom: 1rem;
+}
+
+.none{
+  display: none;
 }
 
 @media screen and (max-width: 340px) {

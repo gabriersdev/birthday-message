@@ -25,9 +25,28 @@
 <body>
 
   <main class="principal">
+    <section class="nao-ver none">
+      <p class="nao-ver__texto">
+        Sem problemas!
+      </p>
+      
+      <p class="nao-ver__texto">
+        Não se esqueça que você é muito importante pra mim e eu vou sempre estar aqui trazendo mensagens incríveis pra você.
+      </p>
+      
+      <div class="botoes">
+        <button class="nao-ver__botao" data-click="voltar">
+          <div>
+            <span class="nao-ver__botao__atalho">V</span>
+            <span class="nao-ver__botao__texto">Voltar</span>
+          </div>
+        </button>
+      </div>
+    </section>
+
     <section class="apresentacao">
       <p class="apresentacao__texto">
-        Fala <b>Eduardo,</b> boa noite!
+        Fala <b>Eduardo,</b> <span data-cumprimento-atual>boa noite!</span>
       </p>
 
       <p class="apresentacao__texto">
@@ -43,14 +62,14 @@
       </p>
 
       <div class="botoes">
-        <button class="apresentacao__botao">
+        <button class="apresentacao__botao" data-click="bora-la">
           <div>
             <span class="apresentacao__botao__atalho">S</span>
             <span class="apresentacao__botao__texto">Borá lá</span>
           </div>
         </button>
   
-        <button class="apresentacao__botao">
+        <button class="apresentacao__botao" data-click="agora-nao">
           <div>
             <span class="apresentacao__botao__atalho">N</span>
             <span class="apresentacao__botao__texto">Agora não</span>
@@ -59,7 +78,7 @@
       </div>
     </section>
 
-    <section class="mensagens">
+    <section class="mensagens none">
       <p class="mensagens__contador">Mensagem 1 de 20</p>
 
       <p class="mensagens__texto">
@@ -67,29 +86,10 @@
       </p>
 
       <div class="botoes">
-        <button class="mensagens__botao">
+        <button class="mensagens__botao" data-click="proxima-mensagem">
           <div>
             <span class="mensagens__botao__atalho">P</span>
             <span class="mensagens__botao__texto">Próxima Mensagem</span>
-          </div>
-        </button>
-      </div>
-    </section>
-
-    <section class="nao-ver">
-      <p class="nao-ver__texto">
-        Sem problemas!
-      </p>
-
-      <p class="nao-ver__texto">
-        Não se esqueça que você é muito importante pra mim e eu vou sempre estar aqui trazendo mensagens incríveis pra você.
-      </p>
-
-      <div class="botoes">
-        <button class="nao-ver__botao">
-          <div>
-            <span class="nao-ver__botao__atalho">V</span>
-            <span class="nao-ver__botao__texto">Voltar</span>
           </div>
         </button>
       </div>
@@ -136,6 +136,7 @@
     </div>
   </noscript>
 
+  <script src="./assets/js/moment.js"></script>
   <script src="./assets/js/app.js"></script>
 </body>
 </html>
