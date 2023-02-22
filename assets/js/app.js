@@ -1,6 +1,8 @@
 "use strict";
 
 (() => {
+  const hoje = moment();
+
   document.querySelectorAll('[data-recarrega-pagina]').forEach(botao => {
     botao.addEventListener('click', () => {
       window.location.reload;
@@ -8,14 +10,12 @@
   })
   
   const atualizarDatas = () => {
-    const dataAtual = moment();
-    
     document.querySelectorAll("[data-ano-atual]").forEach(area => {
-      area.textContent = `${dataAtual.year()}`;
+      area.textContent = `${hoje.year()}`;
     })
     
     document.querySelectorAll("[data-cumprimento-atual]").forEach(cumprimento => {
-      const hora = dataAtual.hour();
+      const hora = hoje.hour();
       if(hora >= 0 && hora < 12){
         cumprimento.textContent = 'bom dia';
       }else if(hora >= 12 && hora < 18){
@@ -25,26 +25,22 @@
       }
     })
   } 
-  
-  atualizarDatas()
-  
+
   const calcularPeriodos = (data) => {
-    
-    const hoje = moment();
     const inicio = moment(data);
     
     const diffHoras = hoje.diff(inicio, 'hours');
     const diffDias = hoje.diff(inicio, 'days');
     const diffMeses = hoje.diff(inicio, 'months');
     const diffAnos = hoje.diff(inicio, 'years');
-    
     // console.log(diffHoras, diffDias, diffMeses, diffAnos);
   }
   
-  
-  calcularPeriodos('2004-01-27')
-  
-  
+  const calcularVoltasATerra = (data) => {
+    const inicio = moment(data);
+    return Math.floor(hoje.diff(inicio, 'days') / 543);
+  }
+
   document.querySelectorAll('[data-click]').forEach(botao => {
     const apresentacao = document.querySelector('section.apresentacao');
     const posApresentacao = apresentacao.offsetTop;
@@ -73,4 +69,7 @@
     })
   })
   
+  atualizarDatas();
+  calcularPeriodos('2004-01-27');
+  //console.log(calcularVoltasATerra('2003-07-03'));
 })();
