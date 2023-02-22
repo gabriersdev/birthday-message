@@ -17,7 +17,7 @@
   padding: 0.75rem;
   border-radius: 5px;
   margin-top: 1rem;
-  transition: background-color ease-in-out 0.3s;
+  /* transition: background-color ease-in-out 0.3s; */
 }
 
 .apresentacao__botao:hover,

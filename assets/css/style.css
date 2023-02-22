@@ -13,7 +13,16 @@ html{
   scroll-behavior: smooth;
 }
 
+html::-webkit-scrollbar{
+  background-color: unset;
+}
+
+html::-webkit-scrollbar-thumb{
+  border: none;
+}
+
 body{
+  overflow: overlay;
   font-family: var(--fonte), sans-serif;
   background-color: var(--bckg-escuro);
   color: var(--txt-cor);

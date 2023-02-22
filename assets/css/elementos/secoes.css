@@ -1,5 +1,5 @@
 .principal{
-
+  
 }
 
 .apresentacao, 
@@ -23,7 +23,7 @@
 }
 
 .mensagens{
-
+  
 }
 
 .mensagens__contador{
@@ -34,7 +34,7 @@
 }
 
 .nao-ver{
-
+  
 }
 
 .apresentacao__texto,
@@ -51,4 +51,16 @@
 .rodape__texto{
   font-size: var(--txt);
   line-height: 1.5;
+}
+
+.rodape__texto:first-child{
+  margin-bottom: 1rem;
+}
+
+@media screen and (max-width: 340px) {
+  .apresentacao, 
+  .mensagens, 
+  .nao-ver{
+    margin: 2rem 0;
+  }
 }

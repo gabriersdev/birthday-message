@@ -34,3 +34,42 @@
 
   --weight-bold: 700;
 }
+
+@media screen and (max-width: 1060px) {
+  :root{
+    --margin-lateral: 10rem;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  :root{
+    --margin-lateral: 5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root{
+    --txt: 1.5rem;
+    --txt-botao: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  :root{
+    --margin-lateral: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root{
+    --margin-lateral: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  :root{
+    --margin-lateral: 1rem;
+
+    --txt-atalho-botao: 1.5rem;
+  }
+}
