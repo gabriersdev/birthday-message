@@ -8,4 +8,14 @@
     })
   })
 
+  const atualizarDatas = () => {
+    const dataAtual = new Date();
+    document.querySelectorAll("[data-ano-atual]").forEach(area => {
+      area.textContent = `${dataAtual.getFullYear()}`;
+    })
+  } 
+
+  atualizarDatas()
+  
+
 })();
