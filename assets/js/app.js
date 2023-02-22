@@ -1,8 +1,35 @@
 "use strict";
 
 (() => {
-  const hoje = moment();
 
+  const isEmpty = (valor) => {
+    if(typeof valor == 'string'){
+      return valor == undefined || valor == null || valor.length <= 0;
+    }else if(Array.isArray(valor)){
+      return valor.length <= 0;
+    }else{
+      return valor == undefined || valor == null
+    }
+  }
+
+  const mensagens = {
+    texto: [
+      'a',
+      'b',
+      'c',
+      'd',
+      'e',
+      'f',
+    ],
+    get(indice) { 
+      return !isEmpty(indice) && indice >= 0 && indice < this.texto.length ? this.texto[indice] : null 
+    }
+  };
+
+  //console.log(mensagens.get(5));
+
+  const hoje = moment();
+  
   document.querySelectorAll('[data-recarrega-pagina]').forEach(botao => {
     botao.addEventListener('click', () => {
       window.location.reload;
@@ -47,7 +74,7 @@
     window.scrollTo({top: posApresentacao, behavior: 'smooth'});
 
     const nao_ver = document.querySelector('section.nao-ver');
-    const mensagens = document.querySelector('section.mensagens');
+    const secMensagens = document.querySelector('section.mensagens');
 
     botao.addEventListener('click', () => {
       switch(botao.dataset.click){
@@ -62,8 +89,8 @@
         break;
 
         case "bora-la":
-        mensagens.classList.toggle('none');
-        const posMensagem = mensagens.offsetTop;
+        secMensagens.classList.toggle('none');
+        const posMensagem = secMensagens.offsetTop;
         window.scrollTo({top: posMensagem, behavior: 'smooth'});
       }
     })
