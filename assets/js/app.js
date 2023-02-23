@@ -63,9 +63,9 @@ import {
       `<p>Você viveu aproximadamente ${dadosPessoa.getPeriodos().dias} dias, ${dadosPessoa.getPeriodos().horas} horas e ${dadosPessoa.getPeriodos().minutos} minutos. Com certeza você tem muitas histórias pra contar <i class="bi bi-emoji-sunglasses-fill amarelo"></i></p>`,
       `<small>Você achou que eu ia esquecer do seu aniversário ${dadosPessoa.getNome()}? 🥳 <br> Hoje é sim, dia de comemorar. E vim aqui pra te falar uma coisa: #OQueFazDiferencaAgora é manter o astral lá em cima. <br> Nessa hora, o melhor presente que a gente pode te dar é ficar em 🏠. <br> Mas nada de deixar essa data em branco, viu? <br> Então, capricha no look do dia. Prepara um ambiente bacana e se conecta com quem mais importa pra cantar parabéns e apagar a velinha 🎂 <br> Vale ligar, chamar no grupo do zap, por tele-chamada... E até arriscar um abraço virtual 🤗 coletivo. <br> Muita saúde e pensamento positivo.💙 <br>`,
       `${dadosPessoa.getNome()}, tenha um dia bem poggers 😅 e big chilling 🔥`,
-      `<img src='./assets/images/feels-birthday-man-birthday.gif' class='midia'></img>`,
-      `<img src='./assets/images/parabéns-valbeth-happy-birthday.gif' class='midia'></img>`,
-      `<img src='./assets/images/família-val-beth.gif' class='midia'></img>`,
+      `<img src='../assets/images/feels-birthday-man-birthday.gif' class='midia'></img>`,
+      `<img src='../assets/images/parabéns-valbeth-happy-birthday.gif' class='midia'></img>`,
+      `<img src='../assets/images/família-val-beth.gif' class='midia'></img>`,
       `Parabéns! Que Deus te abençoe sempre! 🥳`
     ],
     get(indice) { 
