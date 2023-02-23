@@ -81,6 +81,7 @@ import {
   
   const atualizarNome = (nome) => {
     document.querySelector('[data-nome]').textContent = `${nome},`;
+    document.title = `Feliz Aniversário ${nome.charAt(0) + nome.substr(1, nome.length)}!`
   }
   
   const posicionar = () => {
