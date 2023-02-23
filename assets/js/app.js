@@ -1,5 +1,6 @@
 "use strict";
 
+import { pessoas } from './pessoas.js';
 import {   
   atualizarDatas,
   calcularPeriodos,
@@ -8,7 +9,7 @@ import {
 } from './util.js';
 
 (() => {
-  
+
   const nome = 'Gabriel';
   const dataNasc = '2004-01-27';
   const periodos = calcularPeriodos(dataNasc);

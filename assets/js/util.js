@@ -51,7 +51,7 @@ const calcularVoltasATerra = (data) => {
 const isEmpty = (valor) => {
   if(typeof valor == 'string'){
     return valor == undefined || valor == null || valor.length <= 0;
-  }else if(arrayay.isarrayay(valor)){
+  }else if(Array.isArray(valor)){
     return valor.length <= 0;
   }else{
     return valor == undefined || valor == null
