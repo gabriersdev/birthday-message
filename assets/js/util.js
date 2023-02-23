@@ -185,6 +185,12 @@ const escutaPress = () => {
         ocultarApresentacao();
       }
       break;
+      
+      case 'v':
+      if(!document.querySelector('section.nao-ver').classList.contains('none')){
+        exibirApresentacao();
+      }
+      break;
     }
   })
 }
