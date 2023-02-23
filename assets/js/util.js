@@ -36,7 +36,7 @@ const calcularPeriodos = (data) => {
   const diffDias = hoje.diff(inicio, 'days').toLocaleString('pt-BR');
   const diffMeses = hoje.diff(inicio, 'months').toLocaleString('pt-BR');
   const diffAnos = hoje.diff(inicio, 'years').toLocaleString('pt-BR');
-
+  
   return {
     minutos: diffMinutos, horas: diffHoras, dias: diffDias, meses: diffMeses, anos: diffAnos
   };
@@ -68,7 +68,7 @@ const carregarMensagem = (indice) => {
   if(!isEmpty(mensagens[indice])){
     retorno = mensagens[indice];
   }
-
+  
   if(indice >= 0 && indice < mensagens.length){
     if(!isEmpty(retorno)){
       document.querySelector('.mensagens__texto').innerHTML = retorno;
@@ -114,7 +114,7 @@ const retornarUltimaMensagem = () => {
 
 const retornarListaMensagens = () => {
   const armazenado = JSON.parse(localStorage.getItem('informacoes'));
-
+  
   if(!isEmpty(armazenado.ordem_mensagens)){
     return armazenado.ordem_mensagens;
   }else{
@@ -128,30 +128,40 @@ const escutaClicks = () => {
     const posApresentacao = apresentacao.offsetTop;
     window.scrollTo({top: posApresentacao, behavior: 'smooth'});
     
-    const nao_ver = document.querySelector('section.nao-ver');
-    
     botao.addEventListener('click', () => {
       switch(botao.dataset.click){
         case "agora-nao":
-        apresentacao.classList.toggle('none');
-        nao_ver.classList.toggle('none')
+        ocultarApresentacao();
         break;
         
         case "voltar":
-        apresentacao.classList.toggle('none');
-        nao_ver.classList.toggle('none');
+        exibirApresentacao();
         break;
         
         case "bora-la":
         exibirMensagens();
         break;
-
+        
         case "proxima-mensagem":
         carregarMensagem((retornarUltimaMensagem() + 1))
         break;
       }
     })
   })
+}
+
+const exibirApresentacao = () => {
+  const apresentacao = document.querySelector('section.apresentacao');
+  const nao_ver = document.querySelector('section.nao-ver');
+  apresentacao.classList.toggle('none');
+  nao_ver.classList.toggle('none');
+}
+
+const ocultarApresentacao = () => {
+  const apresentacao = document.querySelector('section.apresentacao');
+  const nao_ver = document.querySelector('section.nao-ver');
+  apresentacao.classList.toggle('none');
+  nao_ver.classList.toggle('none')
 }
 
 const exibirMensagens = () => {
@@ -165,10 +175,16 @@ const escutaPress = () => {
   document.addEventListener('keypress', (evento) => {
     switch(evento.key.toLowerCase()){
       case 's':
-        if(!document.querySelector('section.apresentacao').classList.contains('none')){
-          exibirMensagens();
-        }
-        break;
+      if(!document.querySelector('section.apresentacao').classList.contains('none')){
+        exibirMensagens();
+      }
+      break;
+      
+      case 'n':
+      if(!document.querySelector('section.apresentacao').classList.contains('none')){
+        ocultarApresentacao();
+      }
+      break;
     }
   })
 }
