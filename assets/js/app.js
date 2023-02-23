@@ -75,12 +75,19 @@ const atualizarNome = (nome) => {
   document.querySelector('[data-nome]').textContent = `${nome},`;
 }
 
+const posicionar = () => {
+  const apresentacao = document.querySelector('section.apresentacao');
+  const posApresentacao = apresentacao.offsetTop;
+  window.scrollTo({top: posApresentacao, behavior: 'smooth'});
+}
+
 carregarMensagem(armazenado.ultima_mensagem);
 
 atualizarNome(dadosPessoa.getNome());
 escutaClicks();
 escutaPress();
 atualizarDatas();
+posicionar();
 
 document.querySelectorAll('[data-recarrega-pagina]').forEach(botao => {
   botao.addEventListener('click', () => {

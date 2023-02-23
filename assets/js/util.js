@@ -123,11 +123,7 @@ const retornarListaMensagens = () => {
 }
 
 const escutaClicks = () => {
-  document.querySelectorAll('[data-click]').forEach(botao => {
-    const apresentacao = document.querySelector('section.apresentacao');
-    const posApresentacao = apresentacao.offsetTop;
-    window.scrollTo({top: posApresentacao, behavior: 'smooth'});
-    
+  document.querySelectorAll('[data-click]').forEach(botao => {    
     botao.addEventListener('click', () => {
       switch(botao.dataset.click){
         case "agora-nao":
@@ -161,7 +157,9 @@ const ocultarApresentacao = () => {
   const apresentacao = document.querySelector('section.apresentacao');
   const nao_ver = document.querySelector('section.nao-ver');
   apresentacao.classList.toggle('none');
-  nao_ver.classList.toggle('none')
+  nao_ver.classList.toggle('none');
+
+  ocultarMensagens();
 }
 
 const exibirMensagens = () => {
@@ -169,6 +167,11 @@ const exibirMensagens = () => {
   secMensagens.classList.toggle('none');
   const posMensagem = secMensagens.offsetTop;
   window.scrollTo({top: posMensagem, behavior: 'smooth'});
+}
+
+const ocultarMensagens = () => {
+  const secMensagens = document.querySelector('section.mensagens');
+  secMensagens.classList.add('none');
 }
 
 const escutaPress = () => {
