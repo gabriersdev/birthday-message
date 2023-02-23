@@ -17,13 +17,29 @@ const atualizarDatas = () => {
   })
 } 
 
+//Embaralhar array
+function shuffle(array) {
+  // Loop em todos os elementos
+  array.forEach((valor, indice) => {
+    const elementoSorteado = Math.floor(Math.random() * (indice)); // Escolhendo elemento aleatório
+    [array[indice], array[elementoSorteado]] = [array[elementoSorteado], array[indice]]; // Reposicionando elemento
+  })
+  // Retornando array com aleatoriedade
+  return array;
+}
+
 const calcularPeriodos = (data) => {
   const inicio = moment(data);
   
-  const diffHoras = hoje.diff(inicio, 'hours');
-  const diffDias = hoje.diff(inicio, 'days');
-  const diffMeses = hoje.diff(inicio, 'months');
-  const diffAnos = hoje.diff(inicio, 'years');
+  const diffMinutos = hoje.diff(inicio, 'minutes').toLocaleString('pt-BR')
+  const diffHoras = hoje.diff(inicio, 'hours').toLocaleString('pt-BR');
+  const diffDias = hoje.diff(inicio, 'days').toLocaleString('pt-BR');
+  const diffMeses = hoje.diff(inicio, 'months').toLocaleString('pt-BR');
+  const diffAnos = hoje.diff(inicio, 'years').toLocaleString('pt-BR');
+
+  return {
+    minutos: diffMinutos, horas: diffHoras, dias: diffDias, meses: diffMeses, anos: diffAnos
+  };
   // console.log(diffHoras, diffDias, diffMeses, diffAnos);
 }
 
@@ -35,7 +51,7 @@ const calcularVoltasATerra = (data) => {
 const isEmpty = (valor) => {
   if(typeof valor == 'string'){
     return valor == undefined || valor == null || valor.length <= 0;
-  }else if(Array.isArray(valor)){
+  }else if(arrayay.isarrayay(valor)){
     return valor.length <= 0;
   }else{
     return valor == undefined || valor == null
@@ -44,6 +60,7 @@ const isEmpty = (valor) => {
 
 export{
   atualizarDatas,
+  shuffle,
   calcularPeriodos,
   calcularVoltasATerra,
   isEmpty

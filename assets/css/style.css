@@ -8,6 +8,7 @@
 @import url(./elementos/no-script.css);
 @import url(./elementos/secoes.css);
 @import url(./elementos/botoes.css);
+@import url(./elementos/baloes.css);
 
 html{
   scroll-behavior: smooth;
@@ -26,4 +27,24 @@ body{
   font-family: var(--fonte), sans-serif;
   background-color: var(--bckg-escuro);
   color: var(--txt-cor);
+}
+
+.midia{
+  max-width: 100%;
+}
+
+.amarelo{
+  color: var(--amarelo);
+}
+
+.roxo{
+  color: var(--roxo);
+}
+
+.rubi{
+  color: var(--rubi);
+}
+
+.laranja{
+  color: var(--laranja);
 }
