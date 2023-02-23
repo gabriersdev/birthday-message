@@ -40,7 +40,6 @@ const calcularPeriodos = (data) => {
   return {
     minutos: diffMinutos, horas: diffHoras, dias: diffDias, meses: diffMeses, anos: diffAnos
   };
-  // console.log(diffHoras, diffDias, diffMeses, diffAnos);
 }
 
 const calcularVoltasATerra = (data) => {
@@ -58,10 +57,113 @@ const isEmpty = (valor) => {
   }
 }
 
+const atualizarContadorMensagem = (indice, length) => {
+  document.querySelector('.mensagens__contador').textContent = `Mensagem ${indice + 1} de ${length}`;
+}
+
+const carregarMensagem = (indice) => {
+  const mensagens = retornarListaMensagens();
+  let retorno = null;
+  
+  if(!isEmpty(mensagens[indice])){
+    retorno = mensagens[indice];
+  }
+
+  if(indice >= 0 && indice < mensagens.length){
+    if(!isEmpty(retorno)){
+      document.querySelector('.mensagens__texto').innerHTML = retorno;
+      atualizarUltimaMensagem(indice);
+      atualizarContadorMensagem(indice, mensagens.length);
+    }else{
+      console.log('O índice informado para a mensagem retornou vazio.');
+    }
+  }else{
+    reiniciarMensagens();
+  }
+}
+
+const reiniciarMensagens = () => {
+  const armazenado = JSON.parse(localStorage.getItem('informacoes'));
+  armazenado.ultima_mensagem = 0;
+  localStorage.setItem('informacoes', JSON.stringify(armazenado));
+  carregarMensagem((retornarUltimaMensagem()))
+}
+
+const atualizarUltimaMensagem = (indice) => {
+  const armazenado = JSON.parse(localStorage.getItem('informacoes'));
+  if(!isEmpty(indice) && Number.isInteger(indice)){
+    armazenado.ultima_mensagem = indice;
+    localStorage.setItem('informacoes', JSON.stringify(armazenado));
+  }else{
+    console.log('O índice informado para atualizar a última mensagem exibida não é válido.');
+  }
+}
+
+const atualizarNome = (nome) => {
+  document.querySelector('[data-nome]').textContent = `${nome},`;
+}
+
+const retornarUltimaMensagem = () => {
+  const armazenado = JSON.parse(localStorage.getItem('informacoes'));
+  if(!isEmpty(armazenado.ultima_mensagem) && Number.isInteger(armazenado.ultima_mensagem)){
+    return parseInt(armazenado.ultima_mensagem);
+  }else{
+    return 0;
+  }
+}
+
+const retornarListaMensagens = () => {
+  const armazenado = JSON.parse(localStorage.getItem('informacoes'));
+
+  if(!isEmpty(armazenado.ordem_mensagens)){
+    return armazenado.ordem_mensagens;
+  }else{
+    return null;
+  }
+}
+
+const escutaClicks = () => {
+  document.querySelectorAll('[data-click]').forEach(botao => {
+    const apresentacao = document.querySelector('section.apresentacao');
+    const posApresentacao = apresentacao.offsetTop;
+    window.scrollTo({top: posApresentacao, behavior: 'smooth'});
+    
+    const nao_ver = document.querySelector('section.nao-ver');
+    const secMensagens = document.querySelector('section.mensagens');
+    
+    botao.addEventListener('click', () => {
+      switch(botao.dataset.click){
+        case "agora-nao":
+        apresentacao.classList.toggle('none');
+        nao_ver.classList.toggle('none')
+        break;
+        
+        case "voltar":
+        apresentacao.classList.toggle('none');
+        nao_ver.classList.toggle('none');
+        break;
+        
+        case "bora-la":
+        secMensagens.classList.toggle('none');
+        const posMensagem = secMensagens.offsetTop;
+        window.scrollTo({top: posMensagem, behavior: 'smooth'});
+        break;
+
+        case "proxima-mensagem":
+        carregarMensagem((retornarUltimaMensagem() + 1))
+        break;
+      }
+    })
+  })
+}
+
 export{
   atualizarDatas,
   shuffle,
   calcularPeriodos,
   calcularVoltasATerra,
-  isEmpty
+  isEmpty,
+  carregarMensagem,
+  escutaClicks,
+  atualizarNome
 }
