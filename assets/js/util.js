@@ -139,7 +139,7 @@ const escutaClicks = () => {
         break;
         
         case "proxima-mensagem":
-        carregarMensagem((retornarUltimaMensagem() + 1))
+        carregarMensagem((retornarUltimaMensagem() + 1));
         break;
       }
     })
@@ -158,7 +158,7 @@ const ocultarApresentacao = () => {
   const nao_ver = document.querySelector('section.nao-ver');
   apresentacao.classList.toggle('none');
   nao_ver.classList.toggle('none');
-
+  
   ocultarMensagens();
 }
 
@@ -194,6 +194,12 @@ const escutaPress = () => {
         exibirApresentacao();
       }
       break;
+      
+      case 'p':
+      if(!document.querySelector('section.mensagens').classList.contains('none')){
+        carregarMensagem((retornarUltimaMensagem() + 1));
+      }
+      break; 
     }
   })
 }
