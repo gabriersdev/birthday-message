@@ -8,6 +8,7 @@ import {
   isEmpty,
   carregarMensagem,
   escutaClicks,
+  escutaPress,
   shuffle
 } from './util.js';
 
@@ -78,6 +79,7 @@ carregarMensagem(armazenado.ultima_mensagem);
 
 atualizarNome(dadosPessoa.getNome());
 escutaClicks();
+escutaPress();
 atualizarDatas();
 
 document.querySelectorAll('[data-recarrega-pagina]').forEach(botao => {

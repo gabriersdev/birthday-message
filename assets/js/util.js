@@ -129,7 +129,6 @@ const escutaClicks = () => {
     window.scrollTo({top: posApresentacao, behavior: 'smooth'});
     
     const nao_ver = document.querySelector('section.nao-ver');
-    const secMensagens = document.querySelector('section.mensagens');
     
     botao.addEventListener('click', () => {
       switch(botao.dataset.click){
@@ -144,9 +143,7 @@ const escutaClicks = () => {
         break;
         
         case "bora-la":
-        secMensagens.classList.toggle('none');
-        const posMensagem = secMensagens.offsetTop;
-        window.scrollTo({top: posMensagem, behavior: 'smooth'});
+        exibirMensagens();
         break;
 
         case "proxima-mensagem":
@@ -154,6 +151,25 @@ const escutaClicks = () => {
         break;
       }
     })
+  })
+}
+
+const exibirMensagens = () => {
+  const secMensagens = document.querySelector('section.mensagens');
+  secMensagens.classList.toggle('none');
+  const posMensagem = secMensagens.offsetTop;
+  window.scrollTo({top: posMensagem, behavior: 'smooth'});
+}
+
+const escutaPress = () => {
+  document.addEventListener('keypress', (evento) => {
+    switch(evento.key.toLowerCase()){
+      case 's':
+        if(!document.querySelector('section.apresentacao').classList.contains('none')){
+          exibirMensagens();
+        }
+        break;
+    }
   })
 }
 
@@ -165,5 +181,6 @@ export{
   isEmpty,
   carregarMensagem,
   escutaClicks,
+  escutaPress,
   atualizarNome
 }
