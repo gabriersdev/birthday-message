@@ -44,8 +44,9 @@
     </div>
   </noscript>
 
-  <script>
-    localStorage.setItem('informacoes', JSON.stringify({id: 10}));
+  <script type="module">
+    import { retornarIDPessoa } from '../assets/js/util.js';
+    localStorage.setItem('informacoes', JSON.stringify({id: retornarIDPessoa('Daniel')}));
   </script>
 
   <script src="../assets/js/moment.js"></script>

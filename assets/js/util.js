@@ -1,3 +1,5 @@
+import { pessoas } from "./pessoas.js";
+
 const hoje = moment();
 
 const atualizarDatas = () => {
@@ -204,6 +206,12 @@ const escutaPress = () => {
   })
 }
 
+const retornarIDPessoa = (nome) => {
+  if(typeof nome == 'string' && !isEmpty(nome)){
+    return pessoas.dados.findIndex(pessoa => pessoa.nome.toLowerCase() == nome.toLowerCase());
+  }
+}
+
 export{
   atualizarDatas,
   shuffle,
@@ -213,5 +221,6 @@ export{
   carregarMensagem,
   escutaClicks,
   escutaPress,
-  atualizarNome
+  atualizarNome,
+  retornarIDPessoa
 }
