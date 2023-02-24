@@ -101,10 +101,6 @@ const atualizarUltimaMensagem = (indice) => {
   }
 }
 
-const atualizarNome = (nome) => {
-  document.querySelector('[data-nome]').textContent = `${nome},`;
-}
-
 const retornarUltimaMensagem = () => {
   const armazenado = JSON.parse(localStorage.getItem('informacoes'));
   if(!isEmpty(armazenado.ultima_mensagem) && Number.isInteger(armazenado.ultima_mensagem)){
@@ -212,6 +208,23 @@ const retornarIDPessoa = (nome) => {
   }
 }
 
+const carregarConteudos = () => {
+  document.querySelector('main.principal').innerHTML = `<section class="nao-ver none"> <p class="nao-ver__texto"> Sem problemas! </p> <p class="nao-ver__texto"> Não se esqueça que você é muito importante pra mim e eu vou sempre estar aqui trazendo mensagens incríveis pra você. </p> <div class="botoes"> <button class="nao-ver__botao" data-click="voltar"> <div> <span class="nao-ver__botao__atalho">V</span> <span class="nao-ver__botao__texto">Voltar</span> </div> </button> </div> </section> <section class="apresentacao"> <!-- <div class="container"> <div class="balloon"> <div><span>G</span></div> <div><span>A</span></div> <div><span>B</span></div> <div><span>R</span></div> <div><span>I</span></div> <div><span>E</span></div> </div> </div> --> <p class="apresentacao__texto"> Fala <b data-nome>Eduardo,</b> <span data-cumprimento-atual>boa noite!</span> </p> <p class="apresentacao__texto"> Primeiramente, feliz aniversário! </p> <p class="apresentacao__texto"> Segundamente, eu preciso te falar que para esta data tão importante eu escrevi algumas mensagens pra você! </p> <p class="apresentacao__texto"> Bora ver? </p> <div class="botoes"> <button class="apresentacao__botao" data-click="bora-la"> <div> <span class="apresentacao__botao__atalho">S</span> <span class="apresentacao__botao__texto">Borá lá</span> </div> </button> <button class="apresentacao__botao" data-click="agora-nao"> <div> <span class="apresentacao__botao__atalho">N</span> <span class="apresentacao__botao__texto">Agora não</span> </div> </button> </div> </section> <section class="mensagens none"> <p class="mensagens__contador">Mensagem 1 de 20</p> <div class="mensagens__texto"> <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi iste facere suscipit corporis rem nesciunt a. Itaque, impedit, ipsum officiis distinctio tenetur ducimus, maxime natus odio modi consequuntur ratione sequi? Lorem ipsum dolor sit amet consectetur, adipisicing elit.</p> </div> <div class="botoes"> <button class="mensagens__botao" data-click="proxima-mensagem"> <div> <span class="mensagens__botao__atalho">P</span> <span class="mensagens__botao__texto">Próxima Mensagem</span> </div> </button> </div> </section>`;
+  
+  document.querySelector('footer.rodape').innerHTML = `<p class="rodape__texto"> Criado e desenvolvido pelo Gabriel </p> <p class="rodape__texto"> <i class="bi bi-c-circle"></i>&nbsp;<time data-ano-atual>2023</time>, Gabriel Ribeiro </p> <div class="botoes"> <a href='https://github.com/gabrieszin/' class="rodape__botao"> <div> <span class="rodape__botao__atalho"><i class="bi bi-github"></i></span> <span class="rodape__botao__texto">GitHub</span> </div> </a> <a href='https://gabrieszin.github.io/portfolio/' class="rodape__botao"> <div> <span class="rodape__botao__atalho"><i class="bi bi-rainbow"></i></span> <span class="rodape__botao__texto">Portfólio</span> </div> </a> </div>`;
+}
+
+const atualizarNome = (nome) => {
+  document.querySelector('[data-nome]').textContent = `${nome},`;
+  document.title = `Feliz Aniversário ${nome.charAt(0) + nome.substr(1, nome.length)}!`
+}
+
+const posicionar = () => {
+  const apresentacao = document.querySelector('section.apresentacao');
+  const posApresentacao = apresentacao.offsetTop;
+  window.scrollTo({top: posApresentacao, behavior: 'smooth'});
+}
+
 export{
   atualizarDatas,
   shuffle,
@@ -221,6 +234,8 @@ export{
   carregarMensagem,
   escutaClicks,
   escutaPress,
+  retornarIDPessoa,
+  carregarConteudos,
   atualizarNome,
-  retornarIDPessoa
+  posicionar
 }
