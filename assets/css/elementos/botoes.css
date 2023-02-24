@@ -5,7 +5,8 @@
   flex-wrap: wrap;
 }
 
-.botoes button:first-child{
+.botoes button:first-child,
+.botoes a:first-child{
   margin-right: 0.5rem;
 }
 
