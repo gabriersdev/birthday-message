@@ -99,43 +99,47 @@ const carregarMensagem = (indice) => {
     errorFatal(error);
   }
   
-  if(indice >= 0 && indice < mensagens.length){
-    if(!isEmpty(retorno)){
-      
-      if(mensagemEhValida(retorno)){
-        document.querySelector('.mensagens__texto').innerHTML = retorno;
-        atualizarUltimaMensagem(indice);
-        atualizarContadorMensagem(indice, mensagens.length);
+  try{
+    if(indice >= 0 && indice < mensagens.length){
+      if(!isEmpty(retorno)){
+        
+        if(mensagemEhValida(retorno)){
+          document.querySelector('.mensagens__texto').innerHTML = retorno;
+          atualizarUltimaMensagem(indice);
+          atualizarContadorMensagem(indice, mensagens.length);
+        }else{
+          let timerInterval
+          Swal.fire({
+            title: 'Ocorreu um erro ao carregar as mensagens.',
+            html: 'A página será recarregada e as mensagens devem ser recuperadas em <b></b> milisegundos.',
+            timer: 4000,
+            timerProgressBar: true,
+            didOpen: () => {
+              Swal.showLoading()
+              const b = Swal.getHtmlContainer().querySelector('b')
+              timerInterval = setInterval(() => {
+                b.textContent = Swal.getTimerLeft()
+              }, 100)
+            },
+            willClose: () => {
+              clearInterval(timerInterval)
+            }
+          }).then((result) => {
+            if (result.dismiss === Swal.DismissReason.timer) {
+              localStorage.clear();
+              window.location.reload();
+            }
+          })
+        }
+        
       }else{
-        let timerInterval
-        Swal.fire({
-          title: 'Ocorreu um erro ao carregar as mensagens.',
-          html: 'A página será recarregada e as mensagens devem ser recuperadas em <b></b> milisegundos.',
-          timer: 4000,
-          timerProgressBar: true,
-          didOpen: () => {
-            Swal.showLoading()
-            const b = Swal.getHtmlContainer().querySelector('b')
-            timerInterval = setInterval(() => {
-              b.textContent = Swal.getTimerLeft()
-            }, 100)
-          },
-          willClose: () => {
-            clearInterval(timerInterval)
-          }
-        }).then((result) => {
-          if (result.dismiss === Swal.DismissReason.timer) {
-            localStorage.clear();
-            window.location.reload();
-          }
-        })
+        console.log('O índice informado para a mensagem retornou vazio.');
       }
-      
     }else{
-      console.log('O índice informado para a mensagem retornou vazio.');
+      reiniciarMensagens();
     }
-  }else{
-    reiniciarMensagens();
+  }catch(error){
+    errorFatal(error);
   }
 }
 
@@ -292,6 +296,27 @@ const posicionar = () => {
   window.scrollTo({top: posApresentacao, behavior: 'smooth'});
 }
 
+function alterarIDPaginaApoio(indice_pessoa){
+  try{
+    if(Number.isInteger(indice_pessoa)){
+      let armazenado = JSON.parse(localStorage.getItem('informacoes'));
+
+      if(armazenado.id !== null){
+        armazenado.id = indice_pessoa;
+      }else{
+        armazenado = new Object();
+        armazenado.id = indice_pessoa;
+      }
+      
+      localStorage.setItem('informacoes', JSON.stringify(armazenado));
+    }else{
+      errorFatal({name: 'ID'})
+    }
+  }catch(error){
+    errorFatal(error);
+  }
+}
+
 export{
   atualizarDatas,
   shuffle,
@@ -305,5 +330,6 @@ export{
   retornarIDPessoa,
   carregarConteudos,
   atualizarNome,
-  posicionar
+  posicionar,
+  alterarIDPaginaApoio
 }

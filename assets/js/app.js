@@ -22,7 +22,7 @@ import {
   
   let id = 0;
   let armazenado = JSON.parse(localStorage.getItem('informacoes'));
-  
+
   if(isEmpty(armazenado) || isEmpty(armazenado.id) || !Number.isInteger(armazenado.id)){
     const informacoes = {id: 0}
     localStorage.setItem('informacoes', JSON.stringify(informacoes))
@@ -70,7 +70,7 @@ import {
       return !isEmpty(indice) && indice >= 0 && indice < this.texto.length ? this.texto[indice] : null 
     }
   };
-  
+
   if(armazenado == null || armazenado.ordem_mensagens == null || armazenado.ultima_mensagem == null){
     armazenado = JSON.parse(localStorage.getItem('informacoes'));
     armazenado = {... armazenado, ordem_mensagens: shuffle(mensagens.texto), ultima_mensagem: 0}

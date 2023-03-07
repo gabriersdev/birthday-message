@@ -50,8 +50,8 @@
   </noscript>
 
   <script type="module">
-    import { retornarIDPessoa } from '../assets/js/util.js';
-    localStorage.setItem('informacoes', JSON.stringify({id: retornarIDPessoa('Exemplo')}));
+    import { retornarIDPessoa, alterarIDPaginaApoio } from '../assets/js/util.js';
+    alterarIDPaginaApoio(retornarIDPessoa('Exemplo'))
   </script>
 
   <script src="../assets/js/frameworks/moment.js"></script>
