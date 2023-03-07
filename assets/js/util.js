@@ -78,12 +78,25 @@ const mensagemEhValida = (original) => {
   }
 }
 
+const errorFatal = (mensagem) =>{
+  Swal.fire({
+    icon: 'error',
+    title: 'Ocorreu um erro!',
+    text: `Por favor, contate o desenvolvedor.`,
+    footer: `Erro: ${mensagem.name}`
+  })
+}
+
 const carregarMensagem = (indice) => {
   const mensagens = retornarListaMensagens();
   let retorno = null;
   
-  if(!isEmpty(mensagens[indice])){
-    retorno = mensagens[indice];
+  try{
+    if(!isEmpty(mensagens[indice])){
+      retorno = mensagens[indice];
+    }
+  }catch(error){
+    errorFatal(error);
   }
   
   if(indice >= 0 && indice < mensagens.length){
@@ -113,7 +126,7 @@ const carregarMensagem = (indice) => {
         }).then((result) => {
           if (result.dismiss === Swal.DismissReason.timer) {
             localStorage.clear();
-            window.location.reload;
+            window.location.reload();
           }
         })
       }
@@ -127,10 +140,14 @@ const carregarMensagem = (indice) => {
 }
 
 const reiniciarMensagens = () => {
-  const armazenado = JSON.parse(localStorage.getItem('informacoes'));
-  armazenado.ultima_mensagem = 0;
-  localStorage.setItem('informacoes', JSON.stringify(armazenado));
-  carregarMensagem((retornarUltimaMensagem()))
+  try{
+    const armazenado = JSON.parse(localStorage.getItem('informacoes'));
+    armazenado.ultima_mensagem = 0;
+    localStorage.setItem('informacoes', JSON.stringify(armazenado));
+    carregarMensagem((retornarUltimaMensagem()))
+  }catch(error){
+    errorFatal(error);
+  }
 }
 
 const atualizarUltimaMensagem = (indice) => {
@@ -145,20 +162,28 @@ const atualizarUltimaMensagem = (indice) => {
 
 const retornarUltimaMensagem = () => {
   const armazenado = JSON.parse(localStorage.getItem('informacoes'));
-  if(!isEmpty(armazenado.ultima_mensagem) && Number.isInteger(armazenado.ultima_mensagem)){
-    return parseInt(armazenado.ultima_mensagem);
-  }else{
-    return 0;
+  try{
+    if(!isEmpty(armazenado.ultima_mensagem) && Number.isInteger(armazenado.ultima_mensagem)){
+      return parseInt(armazenado.ultima_mensagem);
+    }else{
+      return 0;
+    }
+  }catch(error){
+    errorFatal(error);
   }
 }
 
 const retornarListaMensagens = () => {
   const armazenado = JSON.parse(localStorage.getItem('informacoes'));
   
-  if(!isEmpty(armazenado.ordem_mensagens)){
-    return armazenado.ordem_mensagens;
-  }else{
-    return null;
+  try{
+    if(!isEmpty(armazenado.ordem_mensagens)){
+      return armazenado.ordem_mensagens;
+    }else{
+      return null;
+    }
+  }catch(error){
+    errorFatal(error);
   }
 }
 
