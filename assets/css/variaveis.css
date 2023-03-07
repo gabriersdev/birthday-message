@@ -1,0 +1,79 @@
+:root{
+  --fonte: 'Inter Tight';
+
+  /* Cores */
+  --azul-escuro: #0F1524;
+  --branco: #F5F5F5;
+  --branco025: rgba(245, 245, 245, 0.025);
+  --azul-medio: #495676;
+  --amarelo: #F3D305;
+  --roxo: #A502A5;
+  --rubi: #B60101;
+  --laranja: #FF8C00;
+
+  /* Margin */
+  --margin-lateral: 15rem;
+
+  /* Geral */
+  --txt: 1.85rem;
+  --txt-cor: var(--branco); 
+  
+  --txt-contador-mensagens: 1.75rem;
+  --txt-contador-mensagens-cor: var(--azul-medio);
+
+  --txt-botao: 1.75rem;
+  --txt-botao-cor: var(--branco);
+  --borda-botao: var(--branco);
+  --bckg-botao-hover: var(--branco);
+  --txt-botao-cor-hover: var(--azul-escuro);
+
+  --txt-atalho-botao: 1.25rem;
+  --fonte-txt-atalho-botao: 'JetBrains Mono';
+  --borda-atalho-botao: var(--azul-medio);
+  --txt-atalho-botao-cor: var(--azul-medio);
+
+  /* Background */
+  --bckg-escuro: var(--azul-escuro);
+  --bckg-rodape: var(--branco025);
+
+  --weight-bold: 700;
+}
+
+@media screen and (max-width: 1060px) {
+  :root{
+    --margin-lateral: 10rem;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  :root{
+    --margin-lateral: 5rem;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  :root{
+    --txt: 1.5rem;
+    --txt-botao: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 730px) {
+  :root{
+    --margin-lateral: 3rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  :root{
+    --margin-lateral: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 540px) {
+  :root{
+    --margin-lateral: 1rem;
+
+    --txt-atalho-botao: 1.5rem;
+  }
+}

@@ -1,0 +1,65 @@
+.botoes{
+  margin-top: 1rem;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.botoes button:first-child,
+.botoes a:first-child{
+  margin-right: 0.5rem;
+}
+
+.apresentacao__botao,
+.mensagens__botao,
+.nao-ver__botao,
+.rodape__botao{
+  border: 1px solid var(--borda-botao);
+  padding: 0.75rem;
+  border-radius: 5px;
+  margin-top: 1rem;
+  /* transition: background-color ease-in-out 0.3s; */
+}
+
+.apresentacao__botao:hover,
+.apresentacao__botao:focus,
+.mensagens__botao:hover,
+.mensagens__botao:focus,
+.nao-ver__botao:hover,
+.nao-ver__botao:focus,
+.rodape__botao:hover,
+.rodape__botao:focus{
+  background-color: var(--bckg-botao-hover);
+  color: var(--txt-botao-cor-hover);
+}
+
+.apresentacao__botao div,
+.mensagens__botao div,
+.nao-ver__botao div,
+.rodape__botao div{
+  display: flex;
+  align-items: center;
+}
+
+.apresentacao__botao__atalho,
+.mensagens__botao__atalho,
+.nao-ver__botao__atalho,
+.rodape__botao__atalho{
+  color: var(--txt-atalho-botao-cor);
+  border: 1px solid var(--borda-atalho-botao);
+  border-radius: 2.5px;
+  font-family: var(--fonte-txt-atalho-botao), sans-serif;
+  font-size: var(--txt-atalho-botao);
+  padding: 0.25rem 0.5rem;
+  margin-right: 1rem;
+  display: inline-block;
+}
+
+.apresentacao__botao__texto,
+.mensagens__botao__texto,
+.nao-ver__botao__texto,
+.rodape__botao__texto{
+  display: inline-block;
+  font-size: var(--txt-botao);
+  font-weight: var(--weight-bold);
+}
