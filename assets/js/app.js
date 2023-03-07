@@ -7,6 +7,7 @@ import {
   calcularPeriodos,
   calcularVoltasATerra,
   isEmpty,
+  mensagensProduzidas,
   carregarMensagem,
   escutaClicks,
   escutaPress,
@@ -75,6 +76,8 @@ import {
     armazenado = {... armazenado, ordem_mensagens: shuffle(mensagens.texto), ultima_mensagem: 0}
     localStorage.setItem('informacoes', JSON.stringify(armazenado));
   }
+
+  mensagensProduzidas(mensagens.texto);
   
   carregarMensagem(armazenado.ultima_mensagem);
   atualizarNome(dadosPessoa.getNome());

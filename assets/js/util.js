@@ -1,6 +1,7 @@
 import { pessoas } from "./pessoas.js";
 
 const hoje = moment();
+let mensagensV = null;
 
 const atualizarDatas = () => {
   document.querySelectorAll("[data-ano-atual]").forEach(area => {
@@ -63,6 +64,20 @@ const atualizarContadorMensagem = (indice, length) => {
   document.querySelector('.mensagens__contador').textContent = `Mensagem ${indice + 1} de ${length}`;
 }
 
+const mensagensProduzidas = (mensagens) => {
+  mensagensV = mensagens;
+}
+
+const mensagemEhValida = (original) => {  
+  const mensagens = mensagensV;
+  if(!isEmpty(mensagens)){
+    const valido = mensagens.some(mensagem => mensagem.toLowerCase().trim() == original.toLowerCase().trim());
+    return valido;
+  }else{
+    return false;
+  }
+}
+
 const carregarMensagem = (indice) => {
   const mensagens = retornarListaMensagens();
   let retorno = null;
@@ -70,12 +85,18 @@ const carregarMensagem = (indice) => {
   if(!isEmpty(mensagens[indice])){
     retorno = mensagens[indice];
   }
-  
+
   if(indice >= 0 && indice < mensagens.length){
     if(!isEmpty(retorno)){
-      document.querySelector('.mensagens__texto').innerHTML = retorno;
-      atualizarUltimaMensagem(indice);
-      atualizarContadorMensagem(indice, mensagens.length);
+
+      if(mensagemEhValida(retorno)){
+        document.querySelector('.mensagens__texto').innerHTML = retorno;
+        atualizarUltimaMensagem(indice);
+        atualizarContadorMensagem(indice, mensagens.length);
+      }else{
+        
+      }
+
     }else{
       console.log('O índice informado para a mensagem retornou vazio.');
     }
@@ -231,6 +252,7 @@ export{
   calcularPeriodos,
   calcularVoltasATerra,
   isEmpty,
+  mensagensProduzidas,
   carregarMensagem,
   escutaClicks,
   escutaPress,
