@@ -85,18 +85,39 @@ const carregarMensagem = (indice) => {
   if(!isEmpty(mensagens[indice])){
     retorno = mensagens[indice];
   }
-
+  
   if(indice >= 0 && indice < mensagens.length){
     if(!isEmpty(retorno)){
-
+      
       if(mensagemEhValida(retorno)){
         document.querySelector('.mensagens__texto').innerHTML = retorno;
         atualizarUltimaMensagem(indice);
         atualizarContadorMensagem(indice, mensagens.length);
       }else{
-        
+        let timerInterval
+        Swal.fire({
+          title: 'Ocorreu um erro ao carregar as mensagens.',
+          html: 'A página será recarregada e as mensagens devem ser recuperadas em <b></b> milisegundos.',
+          timer: 4000,
+          timerProgressBar: true,
+          didOpen: () => {
+            Swal.showLoading()
+            const b = Swal.getHtmlContainer().querySelector('b')
+            timerInterval = setInterval(() => {
+              b.textContent = Swal.getTimerLeft()
+            }, 100)
+          },
+          willClose: () => {
+            clearInterval(timerInterval)
+          }
+        }).then((result) => {
+          if (result.dismiss === Swal.DismissReason.timer) {
+            localStorage.clear();
+            window.location.reload;
+          }
+        })
       }
-
+      
     }else{
       console.log('O índice informado para a mensagem retornou vazio.');
     }

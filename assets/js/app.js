@@ -17,7 +17,7 @@ import {
 } from './util.js';
 
 (() => {
-
+  
   carregarConteudos();
   
   let id = 0;
