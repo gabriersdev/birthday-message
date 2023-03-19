@@ -52,7 +52,7 @@ import {
   }
   
   atualizarDadosPessoa(id);
-  
+
   const mensagens = {
     texto: [
       `<p>${dadosPessoa.getNome()}, parabéns! Tudo de bom, felicidades e energia lá em cima! Aproveita que o dia é todo seu! <i class="bi bi-emoji-laughing-fill amarelo"></i></p>`,
@@ -64,7 +64,8 @@ import {
       `<img src='../assets/images/feels-birthday-man-birthday.gif' class='midia'></img>`,
       `<img src='../assets/images/parabéns-valbeth-happy-birthday.gif' class='midia'></img>`,
       `<img src='../assets/images/família-val-beth.gif' class='midia'></img>`,
-      `Parabéns! Que Deus te abençoe sempre! 🥳`
+      `Parabéns! Que Deus te abençoe sempre! 🥳`,
+      `Feche os seus olhos e imagine que estamos juntos, pois sei que nós estaremos quando for a hora certa. Afinal, abrimos mão de muitas coisas para podermos estar juntos, nos limitando a amar por meio de mensagens enquanto uma tela separa a gente, mas tudo valerá a pena e viveremos muitos dias felizes e bem pertinho um do outro.`
     ],
     get(indice) { 
       return !isEmpty(indice) && indice >= 0 && indice < this.texto.length ? this.texto[indice] : null 

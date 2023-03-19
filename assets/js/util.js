@@ -88,6 +88,7 @@ const errorFatal = (mensagem) =>{
 }
 
 const carregarMensagem = (indice) => {
+  // console.log(JSON.parse(localStorage.getItem('informacoes')))
   const mensagens = retornarListaMensagens();
   let retorno = null;
   
@@ -96,12 +97,15 @@ const carregarMensagem = (indice) => {
       retorno = mensagens[indice];
     }
   }catch(error){
+    // console.log('Erro Linha 100');
     errorFatal(error);
   }
   
   if(indice >= 0 && indice < mensagens.length){
     if(!isEmpty(retorno)){
       
+      // console.log(mensagemEhValida(retorno), retorno)
+
       if(mensagemEhValida(retorno)){
         document.querySelector('.mensagens__texto').innerHTML = retorno;
         atualizarUltimaMensagem(indice);
@@ -146,6 +150,7 @@ const reiniciarMensagens = () => {
     localStorage.setItem('informacoes', JSON.stringify(armazenado));
     carregarMensagem((retornarUltimaMensagem()))
   }catch(error){
+    // console.log('Erro Linha 151');
     errorFatal(error);
   }
 }
@@ -169,6 +174,7 @@ const retornarUltimaMensagem = () => {
       return 0;
     }
   }catch(error){
+    // console.log('Erro Linha 175');
     errorFatal(error);
   }
 }
@@ -183,6 +189,7 @@ const retornarListaMensagens = () => {
       return null;
     }
   }catch(error){
+    // console.log('Erro Linha 190');
     errorFatal(error);
   }
 }
@@ -292,6 +299,29 @@ const posicionar = () => {
   window.scrollTo({top: posApresentacao, behavior: 'smooth'});
 }
 
+function alterarIDPaginaApoio(id){
+  let armazenado = JSON.parse(localStorage.getItem('informacoes'));
+
+  if(!isEmpty(armazenado)){
+    if(!isEmpty(armazenado.id)){
+      if(Number.isInteger(id)){
+        armazenado.id = id;
+        try{
+          localStorage.setItem('informacoes', JSON.stringify(armazenado))
+        }catch(error){
+          errorFatal(error);
+        }
+      }
+    }else{
+      errorFatal({name: 'Storage is empty'});
+    }
+  }else{
+    // errorFatal({name: 'Storage is empty. X5'});
+    armazenado = {id: id}
+    localStorage.setItem('informacoes', JSON.stringify(armazenado))
+  }
+}
+
 export{
   atualizarDatas,
   shuffle,
@@ -305,5 +335,6 @@ export{
   retornarIDPessoa,
   carregarConteudos,
   atualizarNome,
-  posicionar
+  posicionar,
+  alterarIDPaginaApoio
 }
