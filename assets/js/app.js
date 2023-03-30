@@ -13,12 +13,11 @@ import {
   escutaPress,
   carregarConteudos,
   atualizarNome,
-  posicionar
+  posicionar,
+  carregarBaloes
 } from './util.js';
 
 (() => {
-  
-  carregarConteudos();
   
   let id = 0;
   let armazenado = JSON.parse(localStorage.getItem('informacoes'));
@@ -80,6 +79,10 @@ import {
 
   mensagensProduzidas(mensagens.texto);
   
+  carregarConteudos().then(() => {
+    carregarBaloes(dadosPessoa.getNome());
+  });
+
   carregarMensagem(armazenado.ultima_mensagem);
   atualizarNome(dadosPessoa.getNome());
   escutaClicks();
