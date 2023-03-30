@@ -105,7 +105,7 @@ const carregarMensagem = (indice) => {
     if(!isEmpty(retorno)){
       
       // console.log(mensagemEhValida(retorno), retorno)
-
+      
       if(mensagemEhValida(retorno)){
         document.querySelector('.mensagens__texto').innerHTML = retorno;
         atualizarUltimaMensagem(indice);
@@ -301,7 +301,7 @@ const posicionar = () => {
 
 function alterarIDPaginaApoio(id){
   let armazenado = JSON.parse(localStorage.getItem('informacoes'));
-
+  
   if(!isEmpty(armazenado)){
     if(!isEmpty(armazenado.id)){
       if(Number.isInteger(id)){
@@ -320,6 +320,47 @@ function alterarIDPaginaApoio(id){
     armazenado = {id: id}
     localStorage.setItem('informacoes', JSON.stringify(armazenado))
   }
+}
+
+carregarBaloes('Gabriel');
+
+function carregarBaloes(nome){  
+  const imagens = [
+    '../assets/images/balao-vermelho.svg',
+    '../assets/images/balao-amarelo.svg',
+    '../assets/images/balao-verde.svg',
+    '../assets/images/balao-azul.svg'
+  ]
+  
+  function criarBaloes(nome){
+    const main = document.querySelector('.area-baloes');
+    nome.split('').forEach(letra => {
+      main.innerHTML += `<div class="balao"><img class="balao--icone"></img><span class="balao--letra">${letra.toLowerCase()}</span></div>`;
+    })
+    adicionarImagens();
+  }
+  
+  criarBaloes(nome);
+  
+  function adicionarImagens(){
+    const divs = document.querySelectorAll('.balao');
+    let pos = 0;
+    divs.forEach((div, index) => {
+      
+      if(pos >= imagens.length){
+        pos = 0;
+      }
+      // console.log(pos);
+      
+      if(div.querySelector('img') !== null){
+        div.querySelector('img').src = imagens[pos];
+      }
+      
+      pos++;
+    })
+  }
+  
+  // adicionarImagens();
 }
 
 export{
