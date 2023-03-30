@@ -1,10 +1,11 @@
 .area-baloes{
-  display: block;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .balao{
   position: relative;
-  display: inline-block;
+  /* display: inline-block; */
 }
 
 .balao:first-child{
@@ -39,4 +40,34 @@
   font-weight: 900;
   /* color: #FFF; */
   color: #000;
+}
+
+@media screen and (max-width: 515px) {
+  .balao--icone{
+    height: 5rem;
+  }
+
+  .balao--letra{
+    font-size: 1.75rem;
+  }
+}
+
+@media screen and (max-width: 435px) {
+  .balao--icone{
+    height: 4rem;
+  }
+
+  .balao--letra{
+    font-size: 1.45rem;
+  }
+}
+
+@media screen and (max-width: 355px) {
+  .balao--icone{
+    height: 4rem;
+  }
+
+  .balao--letra{
+    font-size: 1.45rem;
+  }
 }
