@@ -48,3 +48,9 @@ body{
 .laranja{
   color: var(--laranja);
 }
+
+.informacao-destaque{
+  background-color: #263356;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+}
