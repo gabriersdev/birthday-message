@@ -63,8 +63,12 @@ import {
       `<img src='../assets/images/feels-birthday-man-birthday.gif' class='midia'></img>`,
       `<img src='../assets/images/parabéns-valbeth-happy-birthday.gif' class='midia'></img>`,
       `<img src='../assets/images/família-val-beth.gif' class='midia'></img>`,
+      `<img src='../assets/images/aniversario-bolo.gif' class='midia'></img><br><small>Barba e um bolinho</small>`,
       `Parabéns! Que Deus te abençoe sempre! 🥳`,
-      `Feche os seus olhos e imagine que estamos juntos, pois sei que nós estaremos quando for a hora certa. Afinal, abrimos mão de muitas coisas para podermos estar juntos, nos limitando a amar por meio de mensagens enquanto uma tela separa a gente, mas tudo valerá a pena e viveremos muitos dias felizes e bem pertinho um do outro.`
+      `🎉🕯️🙏🎂🍾🥂✨🍰🎁🥳🙌`,
+      `🎉🕯️🙏🎂🍾🥂✨🍰🎁🥳🙌`,
+      `Feche os seus olhos e imagine que estamos juntos, pois sei que nós estaremos quando for a hora certa. Afinal, abrimos mão de muitas coisas para podermos estar juntos, nos limitando a amar por meio de mensagens enquanto uma tela separa a gente, mas tudo valerá a pena e viveremos muitos dias felizes e bem pertinho um do outro.`,
+      `Feliz aniversário! Hoje é o seu dia especial, pois completa mais um ano de vida é um momento de alegria, de celebrar junto dos que mais ama, junto daqueles que têm um sorriso e um abraço sinceros para compartilhar com você neste dia de festa. Abra o seu coração para todas as felicitações, para a alegria que é a dádiva da vida e usufrua dela o melhor que conseguir. #TAMOJUNTO`
     ],
     get(indice) { 
       return !isEmpty(indice) && indice >= 0 && indice < this.texto.length ? this.texto[indice] : null 
