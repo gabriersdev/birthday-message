@@ -72,6 +72,7 @@ const mensagemEhValida = (original) => {
   const mensagens = mensagensV;
   if(!isEmpty(mensagens)){
     const valido = mensagens.some(mensagem => mensagem.toLowerCase().trim() == original.toLowerCase().trim());
+    // console.log(mensagens)
     return valido;
   }else{
     return false;
@@ -105,7 +106,8 @@ const carregarMensagem = (indice) => {
     if(!isEmpty(retorno)){
       
       // console.log(mensagemEhValida(retorno), retorno)
-      
+      // console.log(retorno);
+
       if(mensagemEhValida(retorno)){
         document.querySelector('.mensagens__texto').innerHTML = retorno;
         atualizarUltimaMensagem(indice);
