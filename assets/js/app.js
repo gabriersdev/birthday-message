@@ -18,7 +18,7 @@ import {
 } from './util.js';
 
 (() => {
-  
+
   let id = 0;
   let armazenado = JSON.parse(localStorage.getItem('informacoes'));
   
@@ -85,6 +85,7 @@ import {
   
   carregarConteudos().then(() => {
     carregarBaloes(dadosPessoa.getNome());
+    window.scrollTo({top: document.querySelector('.principal').offsetTop, behavior: 'smooth'})
   });
 
   carregarMensagem(armazenado.ultima_mensagem);
