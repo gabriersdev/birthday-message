@@ -54,3 +54,8 @@ body{
   padding: 0 0.5rem;
   border-radius: 5px;
 }
+
+figure, figcaption{
+  margin: 0;
+  padding: 0;
+}
