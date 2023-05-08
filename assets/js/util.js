@@ -249,7 +249,7 @@ const ocultarMensagens = () => {
 }
 
 const escutaPress = () => {
-  document.addEventListener('keypress', (evento) => {
+  document.addEventListener('keyup', (evento) => {
     switch(evento.key.toLowerCase()){
       case 's':
       if(!document.querySelector('section.apresentacao').classList.contains('none')){
@@ -270,6 +270,7 @@ const escutaPress = () => {
       break;
       
       case 'p':
+      case 'arrowright':
       if(!document.querySelector('section.mensagens').classList.contains('none')){
         carregarMensagem((retornarUltimaMensagem() + 1));
       }
