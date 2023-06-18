@@ -53,9 +53,27 @@ body{
   background-color: #263356;
   padding: 0 0.5rem;
   border-radius: 5px;
+  display: inline-block;
+  margin: 0.25rem 0;
 }
 
 figure, figcaption{
   margin: 0;
   padding: 0;
+}
+
+.text-animation{
+  display: block;
+  opacity: 0;
+  animation: reveal 0.25s forwards var(--d);
+}
+
+@keyframes reveal {
+  from{
+    transform: translateY(20px);
+  }
+  to{
+    opacity: 1;
+    transform: none;
+  }
 }
