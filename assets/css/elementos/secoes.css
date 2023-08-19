@@ -25,7 +25,7 @@
 }
 
 .mensagens{
-  
+  position: static;
 }
 
 .mensagens__contador{
