@@ -66,6 +66,7 @@ import {
       `<figure><img src='../assets/images/aniversario-bolo.gif' class='midia'></img><figcaption><small>Barba e um bolinho</small></figcaption></figure>`,
       `Parabéns! Que Deus te abençoe sempre! 🥳`,
       `🎉🕯️🙏🎂🍾🥂✨🍰🎁🥳🙌`,
+      `<figure><img src='../assets/images/kawaii.gif' class='midia'></img><figcaption><small>Kawaii</small></figcaption></figure>`,
       `<figure><img src='../assets/images/mwah.gif' class='midia'></img><figcaption><small>Moça mandando beijos</small></figcaption></figure>`,
       `Feche os seus olhos e imagine que estamos juntos, pois sei que nós estaremos quando for a hora certa. Afinal, abrimos mão de muitas coisas para podermos estar juntos, nos limitando a amar por meio de mensagens enquanto uma tela separa a gente, mas tudo valerá a pena e viveremos muitos dias felizes e bem pertinho um do outro. #aqueles`,
       `Feliz aniversário! Hoje é o seu dia especial, pois completa mais um ano de vida é um momento de alegria, de celebrar junto dos que mais ama, junto daqueles que têm um sorriso e um abraço sinceros para compartilhar com você neste dia de festa. Abra o seu coração para todas as felicitações, para a alegria que é a dádiva da vida e usufrua dela o melhor que conseguir. #TAMOJUNTO`
