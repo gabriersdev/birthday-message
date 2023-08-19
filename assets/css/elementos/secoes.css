@@ -1,10 +1,12 @@
 .principal{
-  
+  scroll-snap-type: y mandatory;
 }
 
 .apresentacao, 
 .mensagens, 
 .nao-ver{
+  scroll-snap-align: center !important;
+
   padding: 0 var(--margin-lateral);
   min-height: 100vh;
   display: flex;
