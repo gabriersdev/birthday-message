@@ -30,7 +30,19 @@
 .rodape__botao:hover,
 .rodape__botao:focus{
   background-color: var(--bckg-botao-hover);
-  color: var(--txt-botao-cor-hover);
+  color: var(--bckg-escuro);
+}
+
+.apresentacao__botao:hover span,
+.apresentacao__botao:focus span,
+.mensagens__botao:hover span,
+.mensagens__botao:focus span,
+.nao-ver__botao:hover span,
+.nao-ver__botao:focus span,
+.rodape__botao:hover span,
+.rodape__botao:focus span{
+  border-color: var(--bckg-escuro);
+  color: var(--bckg-escuro);
 }
 
 .apresentacao__botao div,
