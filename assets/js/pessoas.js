@@ -13,5 +13,6 @@ export const pessoas = {
     {nome: 'Samuel', dataNasc: '2002-05-21'},
     {nome: 'Daniel', dataNasc: '2004-02-24'},
     {nome: 'Aline', dataNasc: '2005-01-30'},
+    {nome: 'Greiss', dataNasc: '2000-01-01'}
   ]
 }

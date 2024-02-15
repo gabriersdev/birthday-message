@@ -46,10 +46,17 @@ import {
   
   const atualizarDadosPessoa = (id) => {
     dadosPessoa.setNome(pessoas.dados[id].nome);
-    dadosPessoa.setDataNasc(pessoas.dados[id].dataNasc);
-    dadosPessoa.setPeriodos(calcularPeriodos(pessoas.dados[id].dataNasc));
+    
+    if (new Date(pessoas.dados[id].dataNasc) !== 'Invalid Date' && !isNaN(new Date(pessoas.dados[id].dataNasc))) {
+      dadosPessoa.setDataNasc(pessoas.dados[id].dataNasc);
+      dadosPessoa.setPeriodos(calcularPeriodos(pessoas.dados[id].dataNasc));
+    } else {
+      Swal.fire({title: 'A data de nascimento cadastrada não é válida. Contate o administrador', icon :'error'});
+      dadosPessoa.setDataNasc('2000-01-01');
+      dadosPessoa.setPeriodos(calcularPeriodos('2000-01-01'));
+    };
   }
-  
+
   atualizarDadosPessoa(id);
 
   const mensagens = {
@@ -64,7 +71,7 @@ import {
       `<figure><img src='../assets/images/charlie-brown-christmas-charlie-brown.gif' class='midia'></img><figcaption><small>(Desculpa qualquer coisa)</small></figcaption></figure>`,
       `<figure><img src='../assets/images/parabéns-valbeth-happy-birthday.gif' class='midia'></img></figure>`,
       `<figure><img src='../assets/images/família-val-beth.gif' class='midia'></img></figure>`,
-      `<figure><img src='../assets/images/aniversario-bolo.gif' class='midia'></img><figcaption><small>Barba e um bolinho</small></figcaption></figure>`,
+      `<figure><img src='../assets/images/aniversario-bolo.gif' class='midia'></img><figcaption><small>Um bolinho</small></figcaption></figure>`,
       `Hoje é o dia de celebrar a pessoa incrível que você é! 🎂 Que este aniversário traga consigo muita paz, saúde e momentos inesquecíveis. Você merece todo o carinho do mundo. Que cada novo dia seja uma oportunidade para realizar seus sonhos. Parabéns! (ChatGPT)`,
       `Hoje é o dia de celebrar a existência de alguém tão especial como você. 🎂 Que este novo ano de vida seja repleto de amor, saúde e sucesso. Que cada dia seja uma nova oportunidade para aprender, crescer e se alegrar. Feliz aniversário e que todos os seus sonhos se realizem! 🌟 (ChatGPT)`,
       `No seu dia especial, quero desejar um aniversário repleto de amor, sorrisos e realizações. Que cada momento seja tão único quanto você é para todos nós. Sua presença ilumina nossas vidas. Parabéns e que este novo ciclo seja maravilhoso! (ChatGPT)`,

@@ -47,7 +47,7 @@ const calcularPeriodos = (data) => {
 
 const calcularVoltasATerra = (data) => {
   const inicio = moment(data);
-  return Math.floor(hoje.diff(inicio, 'days') / 543);
+  return Math.floor(hoje.diff(inicio, 'days') / 543) || 'algumas';
 }
 
 const isEmpty = (valor) => {

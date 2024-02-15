@@ -42,6 +42,7 @@
 .apresentacao__texto,
 .mensagens__texto,
 .nao-ver__texto{
+  flex-wrap: balance;
   margin-bottom: 1.25rem;
 }
 
