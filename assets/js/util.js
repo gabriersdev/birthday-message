@@ -72,7 +72,14 @@ const mensagemEhValida = (original) => {
   const mensagens = mensagensV;
   if(!isEmpty(mensagens)){
     const valido = mensagens.some(mensagem => mensagem.toLowerCase().trim() == original.toLowerCase().trim());
-    // console.log(mensagens)
+
+    if(!valido){
+      const verificaMensagemViveuAprox = (str) => str.match(/<p>Você viveu aproximadamente <span class="informacao-destaque">.+ dias,<\/span> <span class="informacao-destaque">.+ horas<\/span> e <span class="informacao-destaque">.+ minutos.<\/span> Com certeza você tem muitas histórias pra contar <i class="bi bi-emoji-sunglasses-fill amarelo"><\/i><\/p>.*/g);
+
+      const verificaMensagemUVT = (str) => str.match(/<p>.+, com o seu tempo de vida, medido em UVT \(Unidade de voltas à Terra\), daria pra percorrer o mundo .+ vezes <i class="bi bi-fire laranja"><\/i> <i class="bi bi-emoji-dizzy-fill amarelo"><\/i><\/p>/g);
+
+      return verificaMensagemViveuAprox || verificaMensagemUVT || false;
+    }
     return valido;
   }else{
     return false;
@@ -109,7 +116,9 @@ const carregarMensagem = (indice) => {
       // console.log(retorno);
 
       if(mensagemEhValida(retorno)){
-        document.querySelector('.mensagens__texto').innerHTML = retorno;
+        const textoMSG = document.querySelector('.mensagens__texto');
+        textoMSG.innerHTML = retorno;
+
         atualizarUltimaMensagem(indice);
         atualizarContadorMensagem(indice, mensagens.length);
       }else{
